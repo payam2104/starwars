@@ -1,0 +1,49 @@
+@use '../../../styles/variables.scss' as *;
+
+.home {
+  background: #fff;
+  position: relative;
+  min-height: clamp(420px, 70dvh, 900px);
+  overflow: hidden;
+  height: calc(100vh - 150px);
+  background-color: $custom-black;
+}
+
+.logo {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: min(68vw, 700px);
+  z-index: 2;
+}
+
+.warp {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.warp span {
+  
+  --angle: 0deg;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 2px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: none;
+  transform-origin: 0 0;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateX(0) scale(.35);
+  opacity: 0;
+  animation: burst 3.6s linear infinite;
+}
+
+@keyframes burst {
+  0%   { opacity: 0; transform: translate(-50%,-50%) rotate(var(--angle)) translateX(0)      scale(.25); }
+  10%  { opacity: 1; }
+  100% { opacity: 0; transform: translate(-50%,-50%) rotate(var(--angle)) translateX(80vmin) scale(1); }
+}
+
+@media (prefers-reduced-motion: reduce) { .warp span { animation: none; opacity: .4; } }

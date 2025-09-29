@@ -1,0 +1,19 @@
+@if (filmService.loading()) { <app-loading></app-loading> }
+@else if (filmService.error()) { <app-error [errorMessage]="filmService.error()"></app-error> }
+@else {
+<div class="container">
+  @for (film of allFilms(); track film.url) {
+  <app-card
+    [isFilm]="true"
+    [bigTitle]="film.title"
+    [title1]="'Director'"
+    [title1Value]="film.director"
+    [title2]="'Producer'"
+    [title2Value]="film.producer"
+    [release_date]="film.release_date"
+    [episode]="film.episode_id"
+    [url]="film.url">
+  </app-card>
+  }
+</div>
+}

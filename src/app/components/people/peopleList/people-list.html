@@ -1,0 +1,21 @@
+@if (peopleService.loading()) { <app-loading></app-loading> }
+@else if (peopleService.error()) { <app-error [errorMessage]="peopleService.error()"></app-error> }
+@else {
+<div class="container">
+  @for (pl of allPeopleList(); track pl.url) {
+  <app-card
+    [isPeople]="true"
+    [bigTitle]="pl.name"
+    [title1]="'Birthyear'"
+    [title1Value]="pl.birth_year"
+    [title2]="'Height'"
+    [title2Value]="pl.height"
+    [title3]="'Gender'"
+    [title3Value]="pl.gender"
+    [title4]="'Mass'"
+    [title4Value]="pl.mass"
+    [url]="pl.url">
+  </app-card>
+  }
+</div>
+}

@@ -1,0 +1,21 @@
+<div class="header center-v">
+  <div class="div-logo center-vh" [routerLink]="'/'"><img src="assets/images/starwars_logo.svg" class="logo"
+      alt="Star Wars Logo" /></div>
+  <nav class="nav">
+    <app-nav-button [navRouterLink]="'/vehicles'" [buttonLabel]="'Vehicles'"></app-nav-button>
+    <app-nav-button [navRouterLink]="'/people-list'" [buttonLabel]="'People'"></app-nav-button>
+    <app-nav-button [navRouterLink]="'/films'" [buttonLabel]="'Films'"></app-nav-button>
+    <app-nav-button [navRouterLink]="'/'" [buttonLabel]="'Home'"></app-nav-button>
+  </nav>
+  <nav class="menu-btn" (click)="toggleMenu($event)">
+    <img src="assets/images/menu.svg" alt="Menu" />
+    @if (menuOpen()) {
+    <div class="context-menu">
+      <div [routerLink]="'/'">Home</div>
+      <div [routerLink]="'/films'">Films</div>
+      <div [routerLink]="'/people-list'">People</div>
+      <div [routerLink]="'/vehicles'">Vehicles</div>
+    </div>
+    }
+  </nav>
+</div>

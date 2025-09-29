@@ -1,0 +1,91 @@
+@use '../../../../styles/variables.scss' as *;
+
+.container {
+  margin-top: 10px;
+
+  .titel-content {
+    text-align: center;
+
+    .title {
+      margin-bottom: 20px;
+    }
+
+    hr {
+      width: 30px;
+      height: 1px;
+      border: 0.5px solid $custom-black;
+      margin: 0px auto;
+    }
+
+    .vehicle-name {
+      font: normal normal bold 2rem / 90px Verdana;
+    }
+
+  }
+
+  .main-content {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+
+    .description {
+      width: 40%;
+      margin: 0px;
+
+      .content {
+
+        .title-big {
+          font-size: 1.3rem;
+          font-weight: 600;
+          margin-bottom: 3px;
+        }
+
+        .title {
+          font-size: 1rem;
+          font-weight: 600;
+
+          span {
+            font-weight: 100;
+          }
+        }
+      }
+    }
+
+    .image {
+      width: 40%;
+
+      img{
+        width: 100%;
+      }
+    }
+
+
+  }
+
+  .infos-content {
+    margin-top: 50px;
+  }
+
+  @media (max-width: 500px) {
+    .titel-content {
+      .character-name {
+        font: normal normal bold 1.2rem / 70px Verdana;
+      }
+    }
+
+    .main-content {
+      display: grid;
+      justify-content: center;
+
+      .description {
+        width: 100%;
+        margin: 0px 0px 20px 0px;
+        text-align: center;
+      }
+
+      .image {
+        width: 100%;
+      }
+    }
+  }
+}

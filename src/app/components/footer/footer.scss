@@ -1,0 +1,10 @@
+@use '../../../styles/variables.scss' as *;
+
+.footer {
+  height: 40px;
+  padding: 0px 20px;
+  -webkit-box-shadow: 0px 4px 8px 0px #000000;
+  box-shadow: 0px 4px 8px 0px #000000;
+  color: $custom-gray;
+  font-size: 0.5rem;
+}

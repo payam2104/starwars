@@ -1,0 +1,48 @@
+@if (peopleService.loading()) { <app-loading></app-loading> }
+@else if (errorMsg()) { <app-error [errorMessage]="errorMsg()"></app-error> }
+@else {
+<div class="container">
+<div class="titel-content center-grid-h">
+    <div class="title">Characterdetails</div>
+    <hr>
+    <div class="character-name">{{people()?.name}}</div>
+  </div>
+
+  <div class="main-content">
+    <div class="description">
+      <div class="content">
+        <div class="title-big">Details: <span class="value"></span></div>
+        <div class="title">Height: <span class="value">{{people()?.height}}</span></div>
+        <div class="title">Mass: <span class="value">{{people()?.mass}}</span></div>
+        <div class="title">Hair color: <span class="value">{{people()?.hair_color}}</span></div>
+        <div class="title">Eye color: <span class="value">{{people()?.eye_color}}</span></div>
+        <div class="title">Year of birth: <span class="value">{{people()?.birth_year}}</span></div>
+        <div class="title">Gender: <span class="value">{{people()?.gender}}</span></div>
+        <div class="title">Home world: <span class="value">
+          {{ planetService.getPlanetName(people()?.homeworld) }}
+        </span></div>
+      </div>
+    </div>
+    <div class="image center-vh">
+      @if (people(); as p) {
+      <img [src]="'assets/images/people/' + idInUrl() + '.jpg'" decoding="async"
+        alt="Episode {{ p.name }}" />
+      }
+    </div>
+  </div>
+
+  @if(peopleFilms().length){
+  <div class="infos-content">
+    <app-info-content [title]="'Films'" [infoObj]="peopleFilms()"  [hasNameProperty]="false"></app-info-content>
+  </div>
+  }
+
+  @if(peopleVehicles().length){
+  <div class="infos-content">
+    <app-info-content [title]="'Vehicles'" [infoObj]="peopleVehicles()" [hasNameProperty]="true"></app-info-content>
+  </div>
+  }
+
+</div>
+
+}

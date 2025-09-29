@@ -1,0 +1,15 @@
+@use '../../../../../styles/variables.scss' as *;
+
+.content {
+  background-color: rgba($custom-gray, 0.24);
+  max-width: max-content;
+  border-radius: 1px;
+  padding: 15px 10px;
+  font-size: 0.6rem;
+  cursor: pointer;
+
+  &:hover {
+    -webkit-box-shadow: 0px 0px 5px -2px #000000;
+    box-shadow: 0px 0px 5px -2px #000000;
+  }
+}

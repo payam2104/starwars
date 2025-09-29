@@ -1,0 +1,36 @@
+@if (vehicleService.loading()) { <app-loading></app-loading> }
+@else if (errorMsg()) { <app-error [errorMessage]="errorMsg()"></app-error> }
+@else {
+<div class="container">
+  <div class="titel-content center-grid-h">
+    <div class="title">Vehicledetails</div>
+    <hr>
+    <div class="vehicle-name">{{vehicle()?.name}}</div>
+  </div>
+
+  <div class="main-content">
+    <div class="description">
+      <div class="content">
+        <div class="title-big">Details: <span class="value"></span></div>
+        <div class="title">Model: <span class="value">{{vehicle()?.model}}</span></div>
+        <div class="title">Manufacturer: <span class="value">{{vehicle()?.manufacturer}}</span></div>
+        <div class="title">Cost in credits: <span class="value">{{vehicle()?.cost_in_credits}}</span></div>
+        <div class="title">Length: <span class="value">{{vehicle()?.length}}</span></div>
+        <div class="title">Consumables: <span class="value">{{vehicle()?.consumables}}</span></div>
+        <div class="title">Vehicle class: <span class="value">{{vehicle()?.vehicle_class}}</span></div>
+      </div>
+    </div>
+    <div class="image center-vh">
+      @if (vehicle(); as v) {
+        @if (hasImage()) {
+        <img [src]="'assets/images/vehicles/' + idInUrl() + '.jpg'" decoding="async" alt="Episode {{ v.name }}" />
+        }
+      }
+    </div>
+  </div>
+
+  <div class="infos-content">
+    <app-info-content [title]="'Films'" [infoObj]="vehicleFilms()" [hasNameProperty]="false"></app-info-content>
+  </div>
+</div>
+}

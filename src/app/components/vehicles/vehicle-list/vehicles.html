@@ -1,0 +1,20 @@
+@if (vehicleService.loading()) { <app-loading></app-loading> }
+@else if (vehicleService.error()) { <app-error [errorMessage]="vehicleService.error()"></app-error> }
+@else {
+<div class="container">
+  @for (v of allVehicles(); track v.url) {
+  <app-card
+    [isVehicles]="true"
+    [bigTitle]="v.name"
+    [title1]="'Model'"
+    [title1Value]="v.model"
+    [title2]="'Manufacturer'"
+    [title2Value]="v.manufacturer"
+    [title3]="'Length'"
+    [title3Value]="v.length"
+    [url]="v.url"
+    [hasImage]="hasImage(v.url)">
+  </app-card>
+  }
+</div>
+}

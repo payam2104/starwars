@@ -1,0 +1,12 @@
+@use '../../../../../styles/variables.scss' as *;
+
+a {
+  text-decoration: none;
+  color: $custom-black;
+  font-size: 0.5rem;
+  font-weight: 600;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

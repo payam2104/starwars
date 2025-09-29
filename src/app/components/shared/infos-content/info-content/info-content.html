@@ -1,0 +1,12 @@
+<div class="title">{{ title }}:</div>
+<div class="content">
+  @for (o of (infoObj ?? []); track o.url) {
+    @if (isNamed(o)) {
+      <app-chips [name]="o.name"></app-chips>
+    } @else if (isTitled(o)) {
+      <app-chips [name]="o.title"></app-chips>
+    } @else {
+      <app-chips [name]="'—'"></app-chips>
+    }
+  }
+</div>

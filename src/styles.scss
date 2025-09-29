@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+@use './styles/variables.scss' as *;
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: $custom-black;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* App-Shell */
+app-root {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+
+.center-vh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.center-v {
+  display: flex;
+  align-items: center;
+}
+
+.center-grid-h {
+  display: grid;
+  justify-content: center;
+}

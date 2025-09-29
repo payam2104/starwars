@@ -1,0 +1,42 @@
+@if (filmService.loading()) { <app-loading></app-loading> }
+@else if (errorMsg()) { <app-error [errorMessage]="errorMsg()"></app-error> }
+@else {
+<div class="container">
+  <div class="titel-content center-grid-h">
+    <div class="title">Filmdetails</div>
+    <hr>
+    <div class="film-title">{{film()?.title}}</div>
+    <div>Episode {{film()?.episode_id ?? 0 | roman}}</div>
+  </div>
+
+  <div class="main-content">
+    <div class="description">
+      <div class="content">
+        <div class="title-big">Details: <span class="value"></span></div>
+        <div class="title">Director: <span class="value">{{film()?.director}}</span></div>
+        <div class="title">Producers: <span class="value">{{film()?.producer}}</span></div>
+        <div class="title">Release date: <span class="value">{{film()?.release_date | date:'dd.MM.yyyy'}}</span></div>
+        <div class="opening-crawl">{{film()?.opening_crawl}}</div>
+      </div>
+    </div>
+    <div class="image center-vh">
+      @if (film(); as f) {
+      <img [src]="'assets/images/films/episode_' + f.episode_id + '.jpg'" decoding="async"
+        alt="Episode {{ f.episode_id }}" />
+      }
+    </div>
+  </div>
+
+  <div class="infos-content">
+    <app-info-content [title]="'Characters'" [infoObj]="filmPeople()"></app-info-content>
+  </div>
+
+  <div class="infos-content">
+    <app-info-content [title]="'Planets'" [infoObj]="filmPlanets()"></app-info-content>
+  </div>
+
+  <div class="infos-content">
+    <app-info-content [title]="'Vehicles'" [infoObj]="filmVehicles()"></app-info-content>
+  </div>
+</div>
+}

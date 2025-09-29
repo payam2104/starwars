@@ -1,0 +1,21 @@
+<div class="container" [class.vehicle]="isVehicles" [routerLink]="urlRouterLink">
+  <div>
+    @if(isFilm){<img [src]="'assets/images/films/episode_' + episode + '.jpg'" class="image" decoding="async" />}
+    @if(isPeople){<img [src]="'assets/images/people/' + index + '.jpg'" class="image" decoding="async" />}
+    @if(hasImage && isVehicles){<img [src]="'assets/images/vehicles/' + index + '.jpg'" class="image-vehicles" decoding="async" />}
+  </div>
+  <div class="title">{{bigTitle}}</div>
+  <div class="infos">
+    <div>{{title1}}: {{title1Value}}</div>
+    <div>{{title2}}: {{title2Value}}</div>
+    @if(release_date){<div>Release date: {{release_date | date:'dd.MM.yyyy'}}</div>}
+    @if(episode){<div>Episode: {{episode | roman}}</div>}
+    @if(title3){<div>{{title3}}: {{title3Value}}</div>}
+    @if(title4){<div>{{title4}}: {{title4Value}}</div>}
+  </div>
+  <div class="detail-btn">
+    <app-text-button
+      [buttonLabel]="'More infos'">
+    </app-text-button>
+  </div>
+</div>
